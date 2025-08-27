@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Sofía Navarro Tabares</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ff85a2;
+            --secondary: #8a4fff;
+            --accent: #42c6ff;
+            --light: #f9f5ff;
+            --dark: #1e1a2a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            margin: 1.5rem auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            margin: 3rem 0;
+            padding: 2rem;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .hobbies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .hobby-card {
+            background: linear-gradient(145deg, #f0f0f0, #ffffff);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .hobby-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .hobby-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Efectos decorativos */
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .shape-1 {
+            width: 250px;
+            height: 250px;
+            top: -100px;
+            left: -100px;
+        }
+        
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            right: -50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="header-content">
+            <h1>Ana Sofía Navarro Tabares</h1>
+            <p class="subtitle">Estudiante · Creadora de Contenido · Artista del Maquillaje</p>
+            <img src="img/Imagen de WhatsApp 2025-08-26 a las 21.44.54_5dea67e6.jpg" alt="Ana Sofía" class="profile-img">
+            <p>¡Hola! Soy una estudiante de 16 años apasionada por el maquillaje, la creación de videos y el patinaje.</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section id="about">
+            <h2>Sobre Mí</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Soy Ana Sofía Navarro Tabares, tengo 17 años y estudio en la Institución Educativa CASD José Prudencio Padilla. Me encanta expresarme a través del maquillaje artístico y crear contenido para redes sociales.</p>
+                    <p>Cuando no estoy estudiando, me puedes encontrar patinando con mis amigos, probando nuevos looks de maquillaje o editando videos para mi canal. Mi sueño es convertirme en una influencer de belleza reconocida y ayudar a otros a sentirse seguros con su apariencia.</p>
+                    <p>Me considero una persona creativa, divertida y siempre dispuesta a aprender cosas nuevas. ¡Adoro los retos y nunca me rindo fácilmente!</p>
+                    <a href="#contact" class="btn">Contáctame</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="hobbies">
+            <h2>Mis Pasatiempos</h2>
+            <div class="hobbies">
+                <div class="hobby-card">
+                    <div class="hobby-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Maquillaje Artístico</h3>
+                    <p>Me encanta experimentar con diferentes técnicas de maquillaje y crear looks únicos que expresen mi personalidad.</p>
+                </div>
+                
+                <div class="hobby-card">
+                    <div class="hobby-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Grabar Videos</h3>
+                    <p>Creo contenido para redes sociales, especialmente tutoriales de maquillaje y vlogs sobre mi vida diaria.</p>
+                </div>
+                
+                <div class="hobby-card">
+                    <div class="hobby-icon">
+                        <i class="fas fa-skating"></i>
+                    </div>
+                    <h3>Patinar</h3>
+                    <p>El patinaje es mi deporte favorito. Me ayuda a mantenerme activa y despejar mi mente.</p>
+                </div>
+                
+                <div class="hobby-card">
+                    <div class="hobby-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Escuchar Música</h3>
+                    <p>La música es mi inspiración constante. Disfruto de diferentes géneros, especialmente el pop y el reggaetón.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="gallery">
+            <h2>Mi Galería</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80" alt="Maquillaje creativo">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/maquillaje.jpg" alt="maquillada">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/video.jpg" alt="Grabando videos">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516724562728-afc824a36e84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80" alt="fotos">
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2>Contáctame</h2>
+            <p>Si quieres saber más sobre mí, colaborar o simplemente charlar, ¡no dudes en contactarme!</p>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/ana_navarr08?igsh=Znd0ZGx0dWltZGt0" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@oficial_ananavarro0?_t=ZS-8zDRfK41J9Y&_r=1" class="social-link">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>© 2025 Ana Sofía Navarro Tabares - Estudiante del CASD José Prudencio Padilla</p>
+    </footer>
+
+    <script>
+        // Efecto de escritura para el título
+        document.addEventListener('DOMContentLoaded', function() {
+            const title = document.querySelector('h1');
+            const originalText = title.textContent;
+            title.textContent = '';
+            
+            let i = 0;
+            const typeWriter = () => {
+                if (i < originalText.length) {
+                    title.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            };
+            
+            typeWriter();
+            
+            // Animación de las tarjetas de hobbies al hacer scroll
+            const hobbyCards = document.querySelectorAll('.hobby-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            hobbyCards.forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
